@@ -15,6 +15,18 @@
 		70B568031CE65A0D00DC9C38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B568011CE65A0D00DC9C38 /* LaunchScreen.storyboard */; };
 		70B5680E1CE65A0D00DC9C38 /* HtmlParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5680D1CE65A0D00DC9C38 /* HtmlParserTests.swift */; };
 		70B5681B1CE65A9400DC9C38 /* AbstractNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681A1CE65A9400DC9C38 /* AbstractNode.swift */; };
+		70B5681E1CE65FEB00DC9C38 /* ArrayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681D1CE65FEB00DC9C38 /* ArrayNode.swift */; };
+		70B568201CE65FFF00DC9C38 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681F1CE65FFF00DC9C38 /* Collection.swift */; };
+		70B568221CE6600900DC9C38 /* HtmlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568211CE6600900DC9C38 /* HtmlNode.swift */; };
+		70B568241CE6601400DC9C38 /* InnerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568231CE6601400DC9C38 /* InnerNode.swift */; };
+		70B568261CE6601C00DC9C38 /* LeafNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568251CE6601C00DC9C38 /* LeafNode.swift */; };
+		70B568281CE6602500DC9C38 /* MockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568271CE6602500DC9C38 /* MockNode.swift */; };
+		70B5682A1CE6602D00DC9C38 /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568291CE6602D00DC9C38 /* TextNode.swift */; };
+		70B5682C1CE6605600DC9C38 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5682B1CE6605600DC9C38 /* Tag.swift */; };
+		70B5682E1CE6606C00DC9C38 /* Dom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5682D1CE6606B00DC9C38 /* Dom.swift */; };
+		70B568301CE6607500DC9C38 /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5682F1CE6607500DC9C38 /* Selector.swift */; };
+		70B568321CE6608000DC9C38 /* StaticDom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568311CE6608000DC9C38 /* StaticDom.swift */; };
+		70B568341CE6609100DC9C38 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568331CE6609100DC9C38 /* Content.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +52,18 @@
 		70B5680D1CE65A0D00DC9C38 /* HtmlParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParserTests.swift; sourceTree = "<group>"; };
 		70B5680F1CE65A0D00DC9C38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B5681A1CE65A9400DC9C38 /* AbstractNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractNode.swift; sourceTree = "<group>"; };
+		70B5681D1CE65FEB00DC9C38 /* ArrayNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayNode.swift; sourceTree = "<group>"; };
+		70B5681F1CE65FFF00DC9C38 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		70B568211CE6600900DC9C38 /* HtmlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlNode.swift; sourceTree = "<group>"; };
+		70B568231CE6601400DC9C38 /* InnerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerNode.swift; sourceTree = "<group>"; };
+		70B568251CE6601C00DC9C38 /* LeafNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeafNode.swift; sourceTree = "<group>"; };
+		70B568271CE6602500DC9C38 /* MockNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNode.swift; sourceTree = "<group>"; };
+		70B568291CE6602D00DC9C38 /* TextNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
+		70B5682B1CE6605600DC9C38 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		70B5682D1CE6606B00DC9C38 /* Dom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dom.swift; sourceTree = "<group>"; };
+		70B5682F1CE6607500DC9C38 /* Selector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selector.swift; sourceTree = "<group>"; };
+		70B568311CE6608000DC9C38 /* StaticDom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticDom.swift; sourceTree = "<group>"; };
+		70B568331CE6609100DC9C38 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				70B568191CE65A6100DC9C38 /* Dom */,
+				70B5682D1CE6606B00DC9C38 /* Dom.swift */,
+				70B5682F1CE6607500DC9C38 /* Selector.swift */,
+				70B568311CE6608000DC9C38 /* StaticDom.swift */,
+				70B568331CE6609100DC9C38 /* Content.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -114,6 +142,14 @@
 			isa = PBXGroup;
 			children = (
 				70B5681A1CE65A9400DC9C38 /* AbstractNode.swift */,
+				70B5681D1CE65FEB00DC9C38 /* ArrayNode.swift */,
+				70B5681F1CE65FFF00DC9C38 /* Collection.swift */,
+				70B568211CE6600900DC9C38 /* HtmlNode.swift */,
+				70B568231CE6601400DC9C38 /* InnerNode.swift */,
+				70B568251CE6601C00DC9C38 /* LeafNode.swift */,
+				70B568271CE6602500DC9C38 /* MockNode.swift */,
+				70B568291CE6602D00DC9C38 /* TextNode.swift */,
+				70B5682B1CE6605600DC9C38 /* Tag.swift */,
 			);
 			path = Dom;
 			sourceTree = "<group>";
@@ -219,9 +255,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B5682C1CE6605600DC9C38 /* Tag.swift in Sources */,
 				70B567FB1CE65A0D00DC9C38 /* SecondViewController.swift in Sources */,
+				70B568321CE6608000DC9C38 /* StaticDom.swift in Sources */,
+				70B568341CE6609100DC9C38 /* Content.swift in Sources */,
+				70B568281CE6602500DC9C38 /* MockNode.swift in Sources */,
+				70B568221CE6600900DC9C38 /* HtmlNode.swift in Sources */,
+				70B5682E1CE6606C00DC9C38 /* Dom.swift in Sources */,
+				70B5682A1CE6602D00DC9C38 /* TextNode.swift in Sources */,
+				70B568301CE6607500DC9C38 /* Selector.swift in Sources */,
 				70B567F71CE65A0D00DC9C38 /* AppDelegate.swift in Sources */,
 				70B567F91CE65A0D00DC9C38 /* FirstViewController.swift in Sources */,
+				70B568241CE6601400DC9C38 /* InnerNode.swift in Sources */,
+				70B568261CE6601C00DC9C38 /* LeafNode.swift in Sources */,
+				70B568201CE65FFF00DC9C38 /* Collection.swift in Sources */,
+				70B5681E1CE65FEB00DC9C38 /* ArrayNode.swift in Sources */,
 				70B5681B1CE65A9400DC9C38 /* AbstractNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +460,7 @@
 				70B568141CE65A0D00DC9C38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70B568151CE65A0D00DC9C38 /* Build configuration list for PBXNativeTarget "HtmlParserTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +469,7 @@
 				70B568171CE65A0D00DC9C38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
