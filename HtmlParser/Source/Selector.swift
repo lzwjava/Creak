@@ -8,6 +8,13 @@
 
 import Foundation
 
-class Selector {
+public class Selector {
     
+    public init(_ selector: String) {
+        
+    }
+    
+    public func find(node: AbstractNode) -> NodeCollection {
+        return NodeCollection()
+    }
 }

@@ -18,4 +18,12 @@ public class InnerNode: ArrayNode {
         
     }
     
+    public func nextChild(id: String) -> AbstractNode {
+        return AbstractNode()
+    }
+    
+    public func previousChild(id: String) -> AbstractNode {
+        return AbstractNode()
+    }
+    
 }

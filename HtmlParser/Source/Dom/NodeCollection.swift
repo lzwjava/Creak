@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+public class NodeCollection: Swift.CollectionType, Swift.SequenceType, Swift.Indexable {
+    
+}

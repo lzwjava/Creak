@@ -8,8 +8,29 @@
 
 import Foundation
 
-class Tag {
+public class Tag {
     
     var encode: UInt = NSUTF8StringEncoding
     
+    var name: String = ""
+    
+    public func attributes() -> Dictionary<String, String?> {
+        return [:]
+    }
+    
+    public func attribute(key: String) -> String? {
+        return nil
+    }
+    
+    public func setAttribute(key: String, value: AnyObject) {
+        
+    }
+    
+    public func removeAttribute(key: String) {
+        
+    }
+    
+    public func removeAllAttributes() {
+        
+    }
 }

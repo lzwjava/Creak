@@ -8,9 +8,13 @@
 
 import Foundation
 
+enum HtmlParserError: ErrorType {
+    case ParentNotFound
+}
+
 public class AbstractNode {
     
-    var tag: Tag?
+    var tag: Tag!
     
     var attr: Array<String> = []
     
@@ -56,6 +60,69 @@ public class AbstractNode {
     public func propagateEncoding(encoding: UInt) {
         encode = encoding
         tag?.encode = encoding
+    }
+    
+    public func ancestor(id: String) -> AbstractNode? {
+        if let parent = _parent {
+            if parent.id == id {
+                return parent
+            }
+            return parent.ancestor(id)
+        }
+        return nil
+    }
+    
+    public func nextSibling() throws -> AbstractNode {
+        guard _parent != nil else {
+            throw HtmlParserError.ParentNotFound
+        }
+        return _parent!.nextChild(id)
+    }
+    
+    public func previousSibling() throws -> AbstractNode {
+        guard _parent != nil else {
+            throw HtmlParserError.ParentNotFound
+        }
+        return _parent!.previousChild(id)
+    }
+    
+    public func attributes() -> Dictionary<String, String?> {
+        return tag.attributes()
+    }
+    
+    public func attribute(key: String) -> String? {
+        return tag.attribute(key)
+    }
+    
+    public func setAttribute(key: String, value: AnyObject) {
+        tag.setAttribute(key, value: value)
+    }
+    
+    public func removeAttribute(key: String) {
+        return tag.removeAttribute(key)
+    }
+    
+    public func removeAllAttributes() {
+        tag.removeAllAttributes()
+    }
+    
+    public func ancestorByTag(tag: String) throws -> AbstractNode {
+        var node: AbstractNode? = self
+        while let safeNode = node {
+            if safeNode.tag.name == tag {
+                return safeNode
+            }
+            node = safeNode.parent
+        }
+        throw HtmlParserError.ParentNotFound
+    }
+    
+    public func find(selector: String, nth: Int? = nil) {
+        let selectorObj = Selector(selector)
+        let nodes = selectorObj.find(self)
+        if let nth = nth {
+            
+        }
     }
 
     public func innerHtml() -> String {
