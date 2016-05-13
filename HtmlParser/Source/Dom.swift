@@ -14,8 +14,42 @@ public class Dom {
     
     var root: HtmlNode!
     
+    var content: Content!
+    
+    private func trim(s: String) -> String {
+        return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }
+    
     private func parse() {
         root = HtmlNode(tag: "root")
+        var activeNode: HtmlNode? = root
+        while activeNode != nil {
+            let str = content.copyUntil("<")
+            if (str == "") {
+                var info = parseTag()
+                if (!(info["status"] as! Bool)) {
+                    activeNode = nil
+                    continue
+                }
+                
+                if (info["closing"] as! Bool) {
+                    
+                }
+                
+                let node = info["node"] as! HtmlNode
+                activeNode!.addChild(node)
+                if !node.tag.selfClosing {
+                    activeNode = node
+                }
+            } else if (trim(str) != "") {
+                let textNode = TextNode(text: str)
+                activeNode?.addChild(textNode)
+            }
+        }
+    }
+    
+    private func parseTag() -> Dictionary<String, AnyObject> {
+        return [:]
     }
     
     public func loadStr(str: String) -> Dom {

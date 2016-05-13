@@ -14,6 +14,8 @@ public class Tag {
     
     var name: String = ""
     
+    var selfClosing = false
+    
     init(name: String) {
         self.name = name
     }

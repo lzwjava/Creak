@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class Content {
+    
+    func copyUntil(string: String, char: Bool = false, escape: Bool = false) -> String {
+       return ""
+    }
+}

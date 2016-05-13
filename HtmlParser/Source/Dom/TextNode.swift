@@ -10,4 +10,11 @@ import Foundation
 
 public class TextNode: LeafNode {
     
+    var text: String
+    
+    init(text: String) {
+        self.text = text
+        super.init()
+    }
+    
 }
