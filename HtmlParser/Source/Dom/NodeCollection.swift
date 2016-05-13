@@ -13,7 +13,7 @@ public struct NodeGenerator: GeneratorType {
     public typealias Element = (Int, AbstractNode)
     
     public var arrayGenerate: IndexingGenerator<[AbstractNode]>?
-
+    
     private var arrayIndex: Int = 0
     
     init(_ nodeCollection: NodeCollection) {

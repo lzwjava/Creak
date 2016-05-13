@@ -13,7 +13,6 @@
 		70B567FE1CE65A0D00DC9C38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B567FC1CE65A0D00DC9C38 /* Main.storyboard */; };
 		70B568001CE65A0D00DC9C38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B567FF1CE65A0D00DC9C38 /* Assets.xcassets */; };
 		70B568031CE65A0D00DC9C38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B568011CE65A0D00DC9C38 /* LaunchScreen.storyboard */; };
-		70B5680E1CE65A0D00DC9C38 /* HtmlParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5680D1CE65A0D00DC9C38 /* HtmlParserTests.swift */; };
 		70B5681B1CE65A9400DC9C38 /* AbstractNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681A1CE65A9400DC9C38 /* AbstractNode.swift */; };
 		70B5681E1CE65FEB00DC9C38 /* ArrayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681D1CE65FEB00DC9C38 /* ArrayNode.swift */; };
 		70B568201CE65FFF00DC9C38 /* NodeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681F1CE65FFF00DC9C38 /* NodeCollection.swift */; };
@@ -27,6 +26,8 @@
 		70B568301CE6607500DC9C38 /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5682F1CE6607500DC9C38 /* Selector.swift */; };
 		70B568321CE6608000DC9C38 /* StaticDom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568311CE6608000DC9C38 /* StaticDom.swift */; };
 		70B568341CE6609100DC9C38 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568331CE6609100DC9C38 /* Content.swift */; };
+		70B568381CE68C7500DC9C38 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568371CE68C7500DC9C38 /* BaseTest.swift */; };
+		70B5683A1CE68CA600DC9C38 /* DomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568391CE68CA600DC9C38 /* DomTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,6 @@
 		70B568021CE65A0D00DC9C38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70B568041CE65A0D00DC9C38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B568091CE65A0D00DC9C38 /* HtmlParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HtmlParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		70B5680D1CE65A0D00DC9C38 /* HtmlParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParserTests.swift; sourceTree = "<group>"; };
 		70B5680F1CE65A0D00DC9C38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B5681A1CE65A9400DC9C38 /* AbstractNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractNode.swift; sourceTree = "<group>"; };
 		70B5681D1CE65FEB00DC9C38 /* ArrayNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayNode.swift; sourceTree = "<group>"; };
@@ -64,6 +64,8 @@
 		70B5682F1CE6607500DC9C38 /* Selector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selector.swift; sourceTree = "<group>"; };
 		70B568311CE6608000DC9C38 /* StaticDom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticDom.swift; sourceTree = "<group>"; };
 		70B568331CE6609100DC9C38 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		70B568371CE68C7500DC9C38 /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
+		70B568391CE68CA600DC9C38 /* DomTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +122,9 @@
 		70B5680C1CE65A0D00DC9C38 /* HtmlParserTests */ = {
 			isa = PBXGroup;
 			children = (
-				70B5680D1CE65A0D00DC9C38 /* HtmlParserTests.swift */,
 				70B5680F1CE65A0D00DC9C38 /* Info.plist */,
+				70B568371CE68C7500DC9C38 /* BaseTest.swift */,
+				70B568391CE68CA600DC9C38 /* DomTest.swift */,
 			);
 			path = HtmlParserTests;
 			sourceTree = "<group>";
@@ -278,7 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B5680E1CE65A0D00DC9C38 /* HtmlParserTests.swift in Sources */,
+				70B5683A1CE68CA600DC9C38 /* DomTest.swift in Sources */,
+				70B568381CE68C7500DC9C38 /* BaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

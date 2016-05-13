@@ -14,6 +14,10 @@ public class Tag {
     
     var name: String = ""
     
+    init(name: String) {
+        self.name = name
+    }
+    
     public func attributes() -> Dictionary<String, String?> {
         return [:]
     }

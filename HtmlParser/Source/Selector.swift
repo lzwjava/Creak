@@ -14,7 +14,7 @@ public class Selector {
         
     }
     
-    public func find(node: AbstractNode) -> NodeCollection {
-        return NodeCollection()
+    public func find(node: AbstractNode) -> Array<AbstractNode> {
+        return Array()
     }
 }

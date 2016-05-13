@@ -117,11 +117,18 @@ public class AbstractNode {
         throw HtmlParserError.ParentNotFound
     }
     
-    public func find(selector: String, nth: Int? = nil) {
+    public func findAll(selector: String) -> Array<AbstractNode> {
         let selectorObj = Selector(selector)
         let nodes = selectorObj.find(self)
-        if let nth = nth {
-            
+        return nodes
+    }
+    
+    public func find(selector: String, nth: Int = 0) -> AbstractNode? {
+        let nodes = findAll(selector)
+        if nodes.count > nth {
+            return nodes[nth]
+        } else {
+            return nil
         }
     }
 

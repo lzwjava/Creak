@@ -10,4 +10,14 @@ import Foundation
 
 public class HtmlNode: InnerNode {
     
+    init(tag: Tag) {
+        super.init()
+        self.tag = tag
+    }
+    
+    convenience init(tag: String) {
+        let tagObj = Tag(name: tag)
+        self.init(tag: tagObj)
+    }
+    
 }
