@@ -53,31 +53,58 @@ class Content {
         return self
     }
     
+    private func strpos(subject: String, pattern:String, startIndex: String.Index) -> String.Index? {
+        let offsetRange = startIndex..<subject.endIndex
+        let offsetContent = subject[offsetRange]
+        let range = offsetContent.rangeOfString(pattern)
+        return range?.startIndex
+    }
+    
     func copyUntil(string: String, char: Bool = false, escape: Bool = false) -> String {
         if content.startIndex.distanceTo(pos) >= size {
             return ""
         }
+        var result = ""
         var position = pos
         var found = false
         var end = false
         if escape {
             while !found || !end {
-                let offsetRange = content.startIndex.advancedBy(position)..<content.endIndex
-                let offsetContent = content[offsetRange]
-                let range = offsetContent.rangeOfString(string)
-                if range == nil {
+                let startPosition = strpos(content, pattern: string, startIndex: position)
+                if startPosition == nil {
                     end = true
                     continue
                 }
-                var position: Int = range!.startIndex.distanceTo(content.startIndex)
-                if self.char(position - 1) == "\\" {
-                    position += 1
+                position = startPosition!
+                if self.char(position.predecessor()) == "\\" {
+                    position = position.successor()
                     continue
                 }
                 
                 found = true
             }
+        } else if char {
+        } else {
+            let startPosition = strpos(content, pattern: string, startIndex: pos)
+            if startPosition == nil {
+                end = true
+            } else {
+                position = startPosition!
+            }
         }
+        if end {
+            // could not find, just return the rest
+            let range = pos..<content.endIndex
+            result = content.substringWithRange(range)
+            return result
+        }
+        if position == pos {
+            return ""
+        }
+        let range = pos..<position
+        result = content.substringWithRange(range)
+        pos = position
+        return result
     }
     
 }
