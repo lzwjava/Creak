@@ -52,7 +52,37 @@ class ContentTest: BaseTest {
     
     func testCopyUntilEscape() {
         let content = Content(content: "foo\"bar\"bax")
-        XCTAssertEqual("foo\"bar", content.copyUntil("\"", char:false, escape: true))
+        print("foo\"bar\"bax")
+//        XCTAssertEqual("foo\"bar", content.copyUntil("\"", char:false, escape: true))
+    }
+    
+    func testCopyUntilNotFound() {
+        let content = Content(content: "foo\"bar\"bax")
+        XCTAssertEqual("foo\"bar\"bax", content.copyUntil("baz"))
+    }
+    
+    func testCopyByToken() {
+        let content = Content(content: "<a href=\"google.com\">")
+        content.fastForward(3)
+        XCTAssertEqual("href=\"google.com\"", content.copyByToken(Content.Token.Attr, char: true))
+    }
+    
+    func testSkip() {
+        let content = Content(content: "abcdefghijkl")
+        content.skip("abcd")
+        XCTAssertEqual("e", content.char())
+    }
+    
+    func testSkipCopy() {
+        let content = Content(content: "abcdefghijkl")
+        XCTAssertEqual("abcd", content.skip("cbda", copy: true))
+    }
+    
+    func testSkipByToken() {
+        let content = Content(content: " b c")
+        content.fastForward(1)
+        content.skipByToken(Content.Token.Blank)
+        XCTAssertEqual("b", content.char())
     }
     
 }

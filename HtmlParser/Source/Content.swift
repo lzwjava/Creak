@@ -80,7 +80,8 @@ class Content {
                     continue
                 }
                 position = startPosition!
-                if self.char(position.predecessor()) == "\\" {
+                if position != content.startIndex &&
+                    self.char(position.predecessor()) == "\\" {
                     position = position.successor()
                     continue
                 }
