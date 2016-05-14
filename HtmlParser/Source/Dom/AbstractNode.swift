@@ -106,7 +106,7 @@ public class AbstractNode {
         tag.removeAllAttributes()
     }
     
-    public func ancestorByTag(tag: String) throws -> AbstractNode {
+    public func ancestorByTag(tag: String) -> AbstractNode? {
         var node: AbstractNode? = self
         while let safeNode = node {
             if safeNode.tag.name == tag {
@@ -114,7 +114,7 @@ public class AbstractNode {
             }
             node = safeNode.parent
         }
-        throw HtmlParserError.ParentNotFound
+        return nil
     }
     
     public func findAll(selector: String) -> Array<AbstractNode> {

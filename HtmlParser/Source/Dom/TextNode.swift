@@ -8,23 +8,24 @@
 
 import Foundation
 
+
+func stringReplace(pattern: String, replacement: String, subject: String) -> String {
+    let regex = try! NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+    let resultText = regex.stringByReplacingMatchesInString(subject, options: .Anchored, range: NSMakeRange(0, subject.characters.count), withTemplate: replacement)
+    return resultText
+}
+
 public class TextNode: LeafNode {
     
     var _text: String!
     
     var convertedText: String?
     
-    private func stringReplace(pattern: String, replacement: String, subject: String) -> String {
-        let regex = try! NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
-        let resultText = regex.stringByReplacingMatchesInString(_text, options: .Anchored, range: NSMakeRange(0, _text.characters.count), withTemplate: replacement)
-        return resultText
-    }
-    
     init(text: String) {
         // remove double spaces
         super.init()
-        var newText = self.stringReplace("\\s+", replacement: " ", subject: text)
-        newText = self.stringReplace("&#10;", replacement: "\n", subject: newText)
+        var newText = stringReplace("\\s+", replacement: " ", subject: text)
+        newText = stringReplace("&#10;", replacement: "\n", subject: newText)
         
         self._text = newText
         self.tag = Tag(name: "text")

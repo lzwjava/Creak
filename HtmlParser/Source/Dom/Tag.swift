@@ -16,6 +16,8 @@ public class Tag {
     
     var selfClosing = false
     
+    var attrs = []
+    
     init(name: String) {
         self.name = name
     }
@@ -25,6 +27,7 @@ public class Tag {
     }
     
     public func attribute(key: String) -> String? {
+        
         return nil
     }
     
