@@ -22,7 +22,7 @@ public class AbstractNode {
     
     var id: String = ""
     
-    var encode: UInt = NSUTF8StringEncoding
+    var encode: UInt?
     
     var parent: InnerNode? {
         get {
@@ -144,7 +144,7 @@ public class AbstractNode {
         return ""
     }
     
-    public func clear() {
+    func clear() {
         
     }
 
