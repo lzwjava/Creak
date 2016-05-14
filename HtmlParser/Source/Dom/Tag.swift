@@ -106,7 +106,4 @@ public class Tag {
         }
     }
     
-    func setAttribute(key: String, value: AnyObject) {
-        
-    }
 }

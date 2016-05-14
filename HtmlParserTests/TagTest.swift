@@ -72,4 +72,28 @@ class TagTest: BaseTest {
         XCTAssertEqual("<a href=\"http://google.com\" selected>", tag.makeOpeningTag())
     }
     
+    func testMakeOpeningTagSelfClosing() {
+        var info = Tag.AttributeInfo()
+        info.value = "clear-fix"
+        info.doubleQuote = true
+        
+        let attrs = ["class": info]
+        
+        let tag = Tag(name: "div")
+        tag.selfClosing = true
+        tag.setAttributes(attrs)
+        XCTAssertEqual("<div class=\"clear-fix\" />", tag.makeOpeningTag())
+    }
+    
+    func testMakeClosingTag() {
+        let tag = Tag(name: "a")
+        XCTAssertEqual("</a>", tag.makeClosingTag())
+    }
+    
+    func testMakeClosingTagSelfClosing() {
+        let tag = Tag(name: "div")
+        tag.selfClosing = true
+        XCTAssertEqual("", tag.makeClosingTag())
+    }
+    
 }

@@ -94,8 +94,12 @@ public class AbstractNode {
         return tag.attribute(key)
     }
     
-    public func setAttribute(key: String, value: AnyObject) {
+    func setAttribute(key: String, value: String) {
         tag.setAttribute(key, value: value)
+    }
+    
+    func setAttribute(key: String, info: Tag.AttributeInfo) {
+        tag.setAttribute(key, info: info)
     }
     
     public func removeAttribute(key: String) {
