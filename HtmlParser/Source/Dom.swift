@@ -79,10 +79,17 @@ public class Dom {
                 result.status = true
                 result.closing = true
                 result.tag = tag
+                return result
             }
-            return result
         }
         
+        var tag = content.copyByToken(Content.Token.Slash, char: true).lowercaseString
+        var node = HtmlNode(tag: tag)
+        
+        while content.char() != ">" &&
+           content.char() != "/" {
+            
+        }
         
         return result
     }

@@ -88,6 +88,8 @@ class Content {
                 found = true
             }
         } else if char {
+            let len = strcspn(content, pattern: string, startIndex: pos)
+            position = pos.advancedBy(len)
         } else {
             let startPosition = strpos(content, pattern: string, startIndex: pos)
             if startPosition == nil {
@@ -113,6 +115,43 @@ class Content {
     
     func copyByToken(token: Token, char: Bool = false, escape: Bool = false) -> String {
         return copyUntil(token.rawValue, char: char, escape: escape)
+    }
+    
+    private func strmatch(subject: String, pattern: String, startIndex: String.Index, contain: Bool) -> String.Index.Distance  {
+        var index = startIndex
+        while index < subject.endIndex {
+            let range = index..<index.successor()
+            let string = subject.substringWithRange(range)
+            if ((contain && pattern.containsString(string)) ||  (!contain && !pattern.containsString(string))){
+                index = index.successor()
+            } else {
+                break
+            }
+        }
+        return startIndex.distanceTo(index)
+    }
+    
+    private func strcspn(subject: String, pattern: String, startIndex: String.Index) -> String.Index.Distance {
+        return strmatch(subject, pattern: pattern, startIndex: startIndex, contain: false)
+    }
+    
+    private func strspn(subject: String, pattern: String, startIndex: String.Index) -> String.Index.Distance {
+        return strmatch(subject, pattern: pattern, startIndex: startIndex, contain: true)
+    }
+    
+    func skip(string: String, copy: Bool = false) -> String? {
+        let len = strspn(content, pattern: string, startIndex: pos)
+        var result: String?
+        if copy {
+            let range = pos..<pos.advancedBy(len)
+            result = content.substringWithRange(range)
+        }
+        pos = pos.advancedBy(len)
+        return result
+    }
+    
+    func skipByToken(token: Token, copy: Bool = false) -> String? {
+        return skip(token.rawValue, copy: copy)
     }
     
 }
