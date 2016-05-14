@@ -16,13 +16,21 @@ class Content {
     
     var pos: String.Index
     
+    
+    enum Token: String {
+        case Blank = " \t\r\n"
+        case Equal = " =/>"
+        case Slash = " />\r\n\t"
+        case Attr = ">"
+    }
+    
     init(content: String) {
         self.content = content
         self.size = self.content.characters.count
         self.pos = self.content.startIndex
     }
     
-    func char(pos: String.Index?) -> Character? {
+    func char(pos: String.Index? = nil) -> Character? {
         var aPos = self.pos
         if pos != nil {
             aPos = pos!
@@ -32,10 +40,6 @@ class Content {
         } else {
             return content[aPos]
         }
-    }
-    
-    func char() -> Character? {
-        return char(nil)
     }
     
     func fastForward(count: String.Index.Distance) -> Self {
@@ -105,6 +109,10 @@ class Content {
         result = content.substringWithRange(range)
         pos = position
         return result
+    }
+    
+    func copyByToken(token: Token, char: Bool = false, escape: Bool = false) -> String {
+        return copyUntil(token.rawValue, char: char, escape: escape)
     }
     
 }

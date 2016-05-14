@@ -16,6 +16,8 @@ public class Dom {
     
     var content: Content!
     
+    var selfClosing = ["img", "br", "input", "meta", "link", "hr", "base", "embed", "spacer"]
+    
     private func trim(s: String) -> String {
         return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
@@ -55,13 +57,33 @@ public class Dom {
         var status = false
         var closing = false
         var node: HtmlNode?
+        var tag: String?
     }
     
     private func parseTag() -> ParseInfo {
         var result: ParseInfo()
-        if self.content.char() != ("<" as Character) {
-            
+        if content.char() != ("<" as Character) {
+            return result
         }
+        
+        if content.fastForward(1).char() == "/" {
+            var tag = content.fastForward(1).copyByToken(Content.Token.Slash, char: true)
+            content.copyUntil(">")
+            content.fastForward(1)
+            
+            tag = tag.lowercaseString
+            if selfClosing.contains(tag) {
+                result.status = true
+                return result
+            } else {
+                result.status = true
+                result.closing = true
+                result.tag = tag
+            }
+            return result
+        }
+        
+        
         return result
     }
     
