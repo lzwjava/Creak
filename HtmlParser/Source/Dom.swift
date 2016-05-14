@@ -26,17 +26,20 @@ public class Dom {
         while activeNode != nil {
             let str = content.copyUntil("<")
             if (str == "") {
-                var info = parseTag()
-                if (!(info["status"] as! Bool)) {
+                let info = parseTag()
+                if !info.status {
                     activeNode = nil
                     continue
                 }
                 
-                if (info["closing"] as! Bool) {
-                    
+                if info.closing {
                 }
                 
-                let node = info["node"] as! HtmlNode
+                if info.node == nil {
+                    continue
+                }
+                
+                let node = info.node!
                 activeNode!.addChild(node)
                 if !node.tag.selfClosing {
                     activeNode = node
@@ -48,8 +51,18 @@ public class Dom {
         }
     }
     
-    private func parseTag() -> Dictionary<String, AnyObject> {
-        return [:]
+    struct ParseInfo {
+        var status = false
+        var closing = false
+        var node: HtmlNode?
+    }
+    
+    private func parseTag() -> ParseInfo {
+        var result: ParseInfo()
+        if self.content.char() != ("<" as Character) {
+            
+        }
+        return result
     }
     
     public func loadStr(str: String) -> Dom {
