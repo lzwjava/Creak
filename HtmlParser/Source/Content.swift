@@ -30,15 +30,15 @@ class Content {
         self.pos = self.content.startIndex
     }
     
-    func char(pos: String.Index? = nil) -> Character? {
-        var aPos = self.pos
-        if pos != nil {
-            aPos = pos!
+    func char(aPos: String.Index? = nil) -> Character? {
+        var position = pos
+        if aPos != nil {
+            position = aPos!
         }
-        if size > content.startIndex.distanceTo(aPos) {
+        if content.startIndex.distanceTo(position) >= size {
             return nil
         } else {
-            return content[aPos]
+            return content[position]
         }
     }
     
@@ -111,6 +111,10 @@ class Content {
         result = content.substringWithRange(range)
         pos = position
         return result
+    }
+    
+    func copyUntilUnless(string: String, unless: String) -> String {
+        return ""
     }
     
     func copyByToken(token: Token, char: Bool = false, escape: Bool = false) -> String {

@@ -61,7 +61,7 @@ public class Dom {
     }
     
     private func parseTag() -> ParseInfo {
-        var result: ParseInfo()
+        var result = ParseInfo()
         if content.char() != ("<" as Character) {
             return result
         }
@@ -88,6 +88,17 @@ public class Dom {
         
         while content.char() != ">" &&
            content.char() != "/" {
+            var space = content.skipByToken(Content.Token.Blank, copy: true)
+            if space?.characters.count == 0 {
+                content.fastForward(1)
+                continue
+            }
+            
+            var name = content.copyByToken(Content.Token.Equal, char: true)
+            if name == "/" {
+                break
+            }
+            
             
         }
         

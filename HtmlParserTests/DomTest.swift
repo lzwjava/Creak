@@ -13,8 +13,7 @@ import Foundation
 class DomTest: BaseTest {
     
     func testLoad() {
-        var dom = Dom()
-        
+        var dom = Dom()        
     }
     
 }

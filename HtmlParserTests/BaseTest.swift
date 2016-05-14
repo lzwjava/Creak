@@ -21,9 +21,4 @@ class BaseTest: XCTestCase {
         super.tearDown()
     }
     
-    func testPerformanceExample() {
-        self.measureBlock {
-        }
-    }
-    
 }
