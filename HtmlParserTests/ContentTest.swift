@@ -22,4 +22,37 @@ class ContentTest: BaseTest {
         XCTAssertNil(content.char(string.endIndex))
     }
     
+    func testFastForward() {
+        let content = Content(content: "abcde")
+        content.fastForward(2)
+        XCTAssertEqual("c", content.char())
+    }
+    
+    func testRewind() {
+        let content = Content(content: "abcde")
+        content.fastForward(2).rewind(1)
+        XCTAssertEqual("b", content.char())
+    }
+    
+    func testRewindNegative() {
+        let content = Content(content: "abcde")
+        content.fastForward(2).rewind(100)
+        XCTAssertEqual("a", content.char())
+    }
+    
+    func testCopyUntil() {
+        let content = Content(content: "abcdeedcba")
+        XCTAssertEqual("abcde", content.copyUntil("ed"))
+    }
+    
+    func testCopyUntilChar() {
+        let content = Content(content: "abcdeedcba")
+        XCTAssertEqual("ab", content.copyUntil("edc", char:true))
+    }
+    
+    func testCopyUntilEscape() {
+        let content = Content(content: "foo\"bar\"bax")
+        XCTAssertEqual("foo\"bar", content.copyUntil("\"", char:false, escape: true))
+    }
+    
 }

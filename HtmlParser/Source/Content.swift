@@ -53,7 +53,7 @@ class Content {
         if (count > maxCount) {
             finalCount = maxCount
         }
-        pos = pos.advancedBy(finalCount)
+        pos = pos.advancedBy(-finalCount)
         return self
     }
     
