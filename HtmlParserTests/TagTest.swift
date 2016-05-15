@@ -14,11 +14,7 @@ import XCTest
 class TagTest: BaseTest {
     
     func testSetAttributes() {
-        var info = Tag.AttributeInfo()
-        info.value =  "http://google.com"
-        info.doubleQuote = false
-        
-        let attrs = ["href": info]
+        let attrs = ["href": AttrValue("http://google.com", doubleQuote: false)]
         let tag = Tag(name: "a")
         tag.setAttributes(attrs)
         XCTAssertEqual("http://google.com", tag.attribute("href")?.value)
@@ -48,24 +44,15 @@ class TagTest: BaseTest {
     }
     
     func testMakeOpeningTag() {
-        var info = Tag.AttributeInfo()
-        info.value =  "http://google.com"
-        info.doubleQuote = true
-        
-        let attrs = ["href": info]
+        let attrs = ["href": AttrValue("http://google.com", doubleQuote: true)]
         let tag = Tag(name: "a")
         tag.setAttributes(attrs)
         XCTAssertEqual("<a href=\"http://google.com\">", tag.makeOpeningTag())
     }
     
     func testMakeOpeingTagEmptyAttr() {
-        var info = Tag.AttributeInfo()
-        info.value =  "http://google.com"
-        info.doubleQuote = true
-        
-        let selected = Tag.AttributeInfo()
-        
-        let attrs = ["href": info, "selected": selected]
+        let attrs = ["href": AttrValue("http://google.com", doubleQuote: true),
+                     "selected": AttrValue()]
         let tag = Tag(name: "a")
         tag.setAttributes(attrs)
         
@@ -73,11 +60,7 @@ class TagTest: BaseTest {
     }
     
     func testMakeOpeningTagSelfClosing() {
-        var info = Tag.AttributeInfo()
-        info.value = "clear-fix"
-        info.doubleQuote = true
-        
-        let attrs = ["class": info]
+        let attrs = ["class": AttrValue("clear-fix", doubleQuote: true)]
         
         let tag = Tag(name: "div")
         tag.selfClosing = true

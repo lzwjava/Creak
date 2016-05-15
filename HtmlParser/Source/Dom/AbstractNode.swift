@@ -86,11 +86,11 @@ public class AbstractNode {
         return _parent!.previousChild(id)
     }
     
-    func attributes() -> Dictionary<String, Tag.AttributeInfo> {
+    func attributes() -> Dictionary<String, AttrValue> {
         return tag.attributes()
     }
     
-    func attribute(key: String) -> Tag.AttributeInfo? {
+    func attribute(key: String) -> AttrValue? {
         return tag.attribute(key)
     }
     
@@ -98,7 +98,7 @@ public class AbstractNode {
         tag.setAttribute(key, value: value)
     }
     
-    func setAttribute(key: String, info: Tag.AttributeInfo) {
+    func setAttribute(key: String, info: AttrValue) {
         tag.setAttribute(key, info: info)
     }
     

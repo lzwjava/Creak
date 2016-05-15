@@ -8,6 +8,20 @@
 
 import Foundation
 
+struct AttrValue {
+    var value: String?
+    var doubleQuote: Bool = true
+    
+    init() {
+        
+    }
+    
+    init(_ value: String?, doubleQuote: Bool) {
+        self.value = value
+        self.doubleQuote = doubleQuote
+    }
+}
+
 public class Tag {
     
     var encode: UInt?
@@ -16,22 +30,17 @@ public class Tag {
     
     var selfClosing = false
     
-    var attrs: Dictionary<String, AttributeInfo> = [:]
-    
-    struct AttributeInfo {
-        var value: String?
-        var doubleQuote: Bool = true
-    }
+    var attrs: Dictionary<String, AttrValue> = [:]
     
     init(name: String) {
         self.name = name
     }
     
-    func attributes() -> Dictionary<String, AttributeInfo> {
+    func attributes() -> Dictionary<String, AttrValue> {
         return [:]
     }
     
-    func attribute(key: String) -> AttributeInfo? {
+    func attribute(key: String) -> AttrValue? {
         if attrs[key] == nil {
             return nil
         }
@@ -42,21 +51,19 @@ public class Tag {
         return attrs[key]!
     }
     
-    func setAttribute(key: String, info: AttributeInfo?) -> Self {
+    func setAttribute(key: String, info: AttrValue?) -> Self {
         let lowKey = key.lowercaseString
         attrs[lowKey] = info
         return self
     }
     
     func setAttribute(key: String, value: String?) -> Self {
-        var info = AttributeInfo()
-        info.value = value
-        info.doubleQuote = true
+        let info = AttrValue(value, doubleQuote: true)
         setAttribute(key, info: info)
         return self
     }
     
-    func setAttributes(attrs: Dictionary<String, AttributeInfo>) -> Self {
+    func setAttributes(attrs: Dictionary<String, AttrValue>) -> Self {
         for (key, info) in attrs {
             setAttribute(key, info: info)
         }
