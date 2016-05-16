@@ -27,6 +27,18 @@ public class InnerNode: ArrayNode {
     var firstChildId: String?
     var lastChildId: String?
     
+    override var parent: InnerNode? {
+        get {
+            return super.parent
+        }
+        set {
+            if newValue != nil {
+                assert(isDescendant(newValue!.id) == false)
+            }
+            super.parent = newValue
+        }
+    }
+    
     public override func propagateEncoding(encoding: UInt) {
         self.encode = encoding
         tag.encode = encoding
