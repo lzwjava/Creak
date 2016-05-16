@@ -10,6 +10,7 @@ import Foundation
 
 enum HtmlParserError: ErrorType {
     case ParentNotFound
+    case CircularNode
 }
 
 public class AbstractNode {
@@ -60,6 +61,10 @@ public class AbstractNode {
     public func propagateEncoding(encoding: UInt) {
         encode = encoding
         tag?.encode = encoding
+    }
+    
+    func isAncestor(id: String) -> Bool {
+        return ancestor(id) != nil
     }
     
     public func ancestor(id: String) -> AbstractNode? {
