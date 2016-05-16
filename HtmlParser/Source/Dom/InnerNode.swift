@@ -86,7 +86,7 @@ public class InnerNode: ArrayNode {
             firstChildId = child.id
             lastChildId = child.id
         }
-        children[child.id] = Child(node: child, prev: nil, next: key)
+        children[child.id] = Child(node: child, prev: key, next: nil)
         child.parent = self
         clear()
         return true

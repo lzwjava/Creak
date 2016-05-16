@@ -87,7 +87,7 @@ class InnerNodeTest: BaseTest {
         child2.parent = parent
         XCTAssertTrue(parent.isChild(child.id))
         XCTAssertTrue(parent.isDescendant(child2.id))
-        XCTAssertFalse(parent.isChild(child2.id))
+        XCTAssertFalse(child2.isChild(parent.id))
     }
     
 }
