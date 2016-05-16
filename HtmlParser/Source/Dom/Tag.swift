@@ -16,6 +16,10 @@ struct AttrValue {
         
     }
     
+    init(_ value: String?) {
+        self.init(value, doubleQuote: true)
+    }
+    
     init(_ value: String?, doubleQuote: Bool) {
         self.value = value
         self.doubleQuote = doubleQuote
@@ -37,7 +41,11 @@ public class Tag {
     }
     
     func attributes() -> Dictionary<String, AttrValue> {
-        return [:]
+        var result = Dictionary<String, AttrValue>()
+        for (name, _) in attrs {
+            result[name] = attribute(name)
+        }
+        return result
     }
     
     func attribute(key: String) -> AttrValue? {
@@ -51,21 +59,21 @@ public class Tag {
         return attrs[key]!
     }
     
-    func setAttribute(key: String, info: AttrValue?) -> Self {
+    func setAttribute(key: String, attrValue: AttrValue?) -> Self {
         let lowKey = key.lowercaseString
-        attrs[lowKey] = info
+        attrs[lowKey] = attrValue
         return self
     }
     
     func setAttribute(key: String, value: String?) -> Self {
         let info = AttrValue(value, doubleQuote: true)
-        setAttribute(key, info: info)
+        setAttribute(key, attrValue: info)
         return self
     }
     
     func setAttributes(attrs: Dictionary<String, AttrValue>) -> Self {
         for (key, info) in attrs {
-            setAttribute(key, info: info)
+            setAttribute(key, attrValue: info)
         }
         return self
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		700AD2C51CE9EADB001B1455 /* InnerNodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AD2C41CE9EADB001B1455 /* InnerNodeTest.swift */; };
+		700AD2C71CEA243F001B1455 /* HtmlNodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700AD2C61CEA243F001B1455 /* HtmlNodeTest.swift */; };
 		70B567F71CE65A0D00DC9C38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B567F61CE65A0D00DC9C38 /* AppDelegate.swift */; };
 		70B567F91CE65A0D00DC9C38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B567F81CE65A0D00DC9C38 /* FirstViewController.swift */; };
 		70B567FB1CE65A0D00DC9C38 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B567FA1CE65A0D00DC9C38 /* SecondViewController.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		700AD2C41CE9EADB001B1455 /* InnerNodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerNodeTest.swift; sourceTree = "<group>"; };
+		700AD2C61CEA243F001B1455 /* HtmlNodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlNodeTest.swift; sourceTree = "<group>"; };
 		70B567F31CE65A0D00DC9C38 /* HtmlParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HtmlParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B567F61CE65A0D00DC9C38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B567F81CE65A0D00DC9C38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				70B5683E1CE77F6000DC9C38 /* TextTest.swift */,
 				70B568401CE7820C00DC9C38 /* TagTest.swift */,
 				700AD2C41CE9EADB001B1455 /* InnerNodeTest.swift */,
+				700AD2C61CEA243F001B1455 /* HtmlNodeTest.swift */,
 			);
 			path = HtmlParserTests;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				700AD2C71CEA243F001B1455 /* HtmlNodeTest.swift in Sources */,
 				70B5683A1CE68CA600DC9C38 /* DomTest.swift in Sources */,
 				70B5683F1CE77F6000DC9C38 /* TextTest.swift in Sources */,
 				700AD2C51CE9EADB001B1455 /* InnerNodeTest.swift in Sources */,

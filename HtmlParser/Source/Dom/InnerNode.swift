@@ -65,13 +65,9 @@ public class InnerNode: ArrayNode {
         return nodes
     }
     
-    public func addChild(child: AbstractNode) throws -> Bool {
-        if (isAncestor(child.id)) {
-            throw HtmlParserError.CircularNode
-        }
-        if (child.id == id) {
-            throw HtmlParserError.CircularNode
-        }
+    public func addChild(child: AbstractNode) -> Bool {
+        assert(isAncestor(child.id) == false)
+        assert(child.id != id)
         var key: String?
         if (hasChildren()) {
             if children[child.id] != nil {

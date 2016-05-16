@@ -90,20 +90,30 @@ public class AbstractNode {
         return _parent!.previousChild(id)
     }
     
-    func attributes() -> Dictionary<String, AttrValue> {
-        return tag.attributes()
+    func attributes() -> Dictionary<String, String?> {
+        let attrValues = tag.attributes()
+        var result = Dictionary<String, String?>()
+        for (name, attrValue) in attrValues {
+            result[name] = attrValue.value
+        }
+        return result
     }
     
-    func attribute(key: String) -> AttrValue? {
-        return tag.attribute(key)
+    func attribute(key: String) -> String? {
+        let attrValue = tag.attribute(key)
+        if let attrValue = attrValue {
+            return attrValue.value
+        } else {
+            return nil
+        }
     }
     
     func setAttribute(key: String, value: String) {
         tag.setAttribute(key, value: value)
     }
     
-    func setAttribute(key: String, info: AttrValue) {
-        tag.setAttribute(key, info: info)
+    func setAttribute(key: String, attrValue: AttrValue) {
+        tag.setAttribute(key, attrValue: attrValue)
     }
     
     public func removeAttribute(key: String) {
