@@ -57,13 +57,6 @@ class Content {
         return self
     }
     
-    private func strpos(subject: String, pattern:String, startIndex: String.Index) -> String.Index? {
-        let offsetRange = startIndex..<subject.endIndex
-        let offsetContent = subject[offsetRange]
-        let range = offsetContent.rangeOfString(pattern)
-        return range?.startIndex
-    }
-    
     func copyUntil(string: String, char: Bool = false, escape: Bool = false) -> String {
         if content.startIndex.distanceTo(pos) >= size {
             return ""
@@ -73,7 +66,7 @@ class Content {
         var found = false
         var end = false
         if escape {
-            while !found || !end {
+            while !found && !end {
                 let startPosition = strpos(content, pattern: string, startIndex: position)
                 if startPosition == nil {
                     end = true
@@ -120,28 +113,6 @@ class Content {
     
     func copyByToken(token: Token, char: Bool = false, escape: Bool = false) -> String {
         return copyUntil(token.rawValue, char: char, escape: escape)
-    }
-    
-    private func strmatch(subject: String, pattern: String, startIndex: String.Index, contain: Bool) -> String.Index.Distance  {
-        var index = startIndex
-        while index < subject.endIndex {
-            let range = index..<index.successor()
-            let string = subject.substringWithRange(range)
-            if ((contain && pattern.containsString(string)) ||  (!contain && !pattern.containsString(string))){
-                index = index.successor()
-            } else {
-                break
-            }
-        }
-        return startIndex.distanceTo(index)
-    }
-    
-    private func strcspn(subject: String, pattern: String, startIndex: String.Index) -> String.Index.Distance {
-        return strmatch(subject, pattern: pattern, startIndex: startIndex, contain: false)
-    }
-    
-    private func strspn(subject: String, pattern: String, startIndex: String.Index) -> String.Index.Distance {
-        return strmatch(subject, pattern: pattern, startIndex: startIndex, contain: true)
     }
     
     func skip(string: String, copy: Bool = false) -> String? {

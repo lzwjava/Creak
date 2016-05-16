@@ -8,6 +8,11 @@
 
 import Foundation
 
+func trim(s: String) -> String {
+    return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+}
+
+
 public class Dom {
     
     var raw: String!
@@ -17,11 +22,7 @@ public class Dom {
     var content: Content!
     
     var selfClosing = ["img", "br", "input", "meta", "link", "hr", "base", "embed", "spacer"]
-    
-    private func trim(s: String) -> String {
-        return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-    }
-    
+
     private func parse() {
         root = HtmlNode(tag: "root")
         var activeNode: InnerNode? = root
@@ -169,8 +170,15 @@ public class Dom {
     
     public func loadStr(str: String) -> Dom {
         raw = str
+        
+        let html = clean(str)
+        content = Content(content: html)
         parse()
         return self
+    }
+    
+    func clean(str: String) -> String {
+        return str
     }
     
     public func find(selector: String, nth: Int = 0) -> AbstractNode? {

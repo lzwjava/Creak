@@ -8,12 +8,16 @@
 
 import Foundation
 
+import XCTest
 @testable import HtmlParser
 
 class DomTest: BaseTest {
     
     func testLoad() {
-        var dom = Dom()        
+        let dom = Dom()
+        dom.loadStr("<div class=\"all\"><p>Hey bro, <a href=\"google.com\">click here</a><br /> :)</p></div>")
+        let div = dom.find("div", nth: 0)
+        XCTAssertEqual("<div class=\"all\"><p>Hey bro, <a href=\"google.com\">click here</a><br /> :)</p></div>", div?.outerHtml())
     }
     
 }

@@ -165,7 +165,44 @@ public class AbstractNode {
     func clear() {
         
     }
+}
 
-    
-    
+func strpos(subject: String, pattern:String, startIndex: String.Index) -> String.Index? {
+    let offsetRange = startIndex..<subject.endIndex
+    let subjectRange = subject.rangeOfString(pattern, options: NSStringCompareOptions.LiteralSearch, range: offsetRange)
+    return subjectRange?.startIndex
+}
+
+func strmatch(subject: String, pattern: String, startIndex: String.Index?, contain: Bool) -> String.Index.Distance  {
+    var sIndex: String.Index
+    if startIndex != nil {
+        sIndex = startIndex!
+    } else {
+        sIndex = subject.startIndex
+    }
+    var index = sIndex
+    while index < subject.endIndex {
+        let range = index..<index.successor()
+        let string = subject.substringWithRange(range)
+        if ((contain && pattern.containsString(string)) ||  (!contain && !pattern.containsString(string))){
+            index = index.successor()
+        } else {
+            break
+        }
+    }
+    return sIndex.distanceTo(index)
+}
+
+func strcspn(subject: String, pattern: String, startIndex: String.Index? = nil) -> String.Index.Distance {
+    return strmatch(subject, pattern: pattern, startIndex: startIndex, contain: false)
+}
+
+func strspn(subject: String, pattern: String, startIndex: String.Index? = nil) -> String.Index.Distance {
+    return strmatch(subject, pattern: pattern, startIndex: startIndex, contain: true)
+}
+
+func stringReplace(pattern: String, replacement: String, subject: String) -> String {
+    let regex = try! NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+    let resultText = regex.stringByReplacingMatchesInString(subject, options: .Anchored, range: NSMakeRange(0, subject.characters.count), withTemplate: replacement)
+    return resultText
 }

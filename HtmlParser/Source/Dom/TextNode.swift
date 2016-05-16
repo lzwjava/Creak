@@ -8,13 +8,6 @@
 
 import Foundation
 
-
-func stringReplace(pattern: String, replacement: String, subject: String) -> String {
-    let regex = try! NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
-    let resultText = regex.stringByReplacingMatchesInString(subject, options: .Anchored, range: NSMakeRange(0, subject.characters.count), withTemplate: replacement)
-    return resultText
-}
-
 public class TextNode: LeafNode {
     
     var _text: String!
