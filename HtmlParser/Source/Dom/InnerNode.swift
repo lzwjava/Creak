@@ -75,16 +75,18 @@ public class InnerNode: ArrayNode {
         var key: String?
         if (hasChildren()) {
             if children[child.id] != nil {
+                // already in children
                 return false
             }
             let sibling = lastChild()!
             key = sibling.id
-            children[key!]!.next = key
+            children[key!]!.next = child.id
             lastChildId = child.id
         } else {
             firstChildId = child.id
+            lastChildId = child.id
         }
-        children[child.id] = Child(node: child, prev: nil, next: nil)
+        children[child.id] = Child(node: child, prev: nil, next: key)
         child.parent = self
         clear()
         return true

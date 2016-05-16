@@ -40,6 +40,7 @@ public class AbstractNode {
                 parent.removeChild(id)
             }
             _parent = newValue
+            // TODO: do not use try!
             try! _parent?.addChild(self)
             clear()
         }
@@ -79,17 +80,13 @@ public class AbstractNode {
         return nil
     }
     
-    public func nextSibling() throws -> AbstractNode? {
-        guard _parent != nil else {
-            throw HtmlParserError.ParentNotFound
-        }
+    public func nextSibling() -> AbstractNode? {
+        assert(_parent != nil)
         return _parent!.nextChild(id)
     }
     
-    public func previousSibling() throws -> AbstractNode? {
-        guard _parent != nil else {
-            throw HtmlParserError.ParentNotFound
-        }
+    public func previousSibling() -> AbstractNode? {
+        assert(_parent != nil)
         return _parent!.previousChild(id)
     }
     
