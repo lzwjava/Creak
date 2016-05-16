@@ -43,11 +43,14 @@ public class InnerNode: ArrayNode {
         return children[id]?.node
     }
     
-    func getChildren() {
-    }
-    
-    public func removeChild(id: String) {
-        
+    func getChildren() -> Array<AbstractNode> {
+        var nodes = Array<AbstractNode>()
+        var child = firstChild()
+        while child != nil {
+            nodes.append(child!)
+            child = nextChild(child!.id)
+        }
+        return nodes
     }
     
     public func addChild(child: AbstractNode) throws -> Bool {
@@ -120,21 +123,27 @@ public class InnerNode: ArrayNode {
         return children[id] != nil
     }
     
-    func replaceChild(childId: String, newChild: AbstractNode) -> Bool {
-        let oldChild = getChild(childId)
-        return true
+    func replaceChild(childId: String, newChild: AbstractNode) throws {
+        let oldChild = children[childId]
+        guard oldChild != nil else {
+            throw HtmlParserError.ChildNotFound
+        }
+        let checkChild = getChild(newChild.id)
+        guard checkChild == nil else {
+            throw HtmlParserError.NodeAlreadyExist
+        }
+        children[newChild.id] = Child(node: newChild, prev: oldChild?.prev, next: oldChild?.next)
+        children.removeValueForKey(childId)
+        if firstChildId == childId {
+            firstChildId = newChild.id
+        }
+        if lastChildId == childId {
+            lastChildId = newChild.id
+        }
     }
     
     func countChildren() -> Int {
         return children.count
-    }
-    
-    public func nextChild(id: String) -> AbstractNode {
-        return AbstractNode()
-    }
-    
-    public func previousChild(id: String) -> AbstractNode {
-        return AbstractNode()
     }
     
     func firstChild() -> AbstractNode? {
@@ -151,6 +160,20 @@ public class InnerNode: ArrayNode {
         } else {
             return nil
         }
+    }
+    
+    func isDescendant(id: String) -> Bool {
+        if isChild(id) {
+            return true
+        }
+        for (id, child) in children {
+            if let innerNode = child.node as? InnerNode {
+                if innerNode.hasChildren() && innerNode.isDescendant(id) {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
 }

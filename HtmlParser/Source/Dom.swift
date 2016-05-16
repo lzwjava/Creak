@@ -42,13 +42,13 @@ public class Dom {
                 }
                 
                 let node = info.node!
-                activeNode!.addChild(node)
+                try! activeNode!.addChild(node)
                 if !node.tag.selfClosing {
                     activeNode = node
                 }
             } else if (trim(str) != "") {
                 let textNode = TextNode(text: str)
-                activeNode?.addChild(textNode)
+                try! activeNode?.addChild(textNode)
             }
         }
     }

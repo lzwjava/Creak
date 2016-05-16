@@ -11,6 +11,8 @@ import Foundation
 enum HtmlParserError: ErrorType {
     case ParentNotFound
     case CircularNode
+    case NodeAlreadyExist
+    case ChildNotFound
 }
 
 public class AbstractNode {
@@ -38,7 +40,7 @@ public class AbstractNode {
                 parent.removeChild(id)
             }
             _parent = newValue
-            _parent?.addChild(self)
+            try! _parent?.addChild(self)
             clear()
         }
     }
@@ -77,14 +79,14 @@ public class AbstractNode {
         return nil
     }
     
-    public func nextSibling() throws -> AbstractNode {
+    public func nextSibling() throws -> AbstractNode? {
         guard _parent != nil else {
             throw HtmlParserError.ParentNotFound
         }
         return _parent!.nextChild(id)
     }
     
-    public func previousSibling() throws -> AbstractNode {
+    public func previousSibling() throws -> AbstractNode? {
         guard _parent != nil else {
             throw HtmlParserError.ParentNotFound
         }
