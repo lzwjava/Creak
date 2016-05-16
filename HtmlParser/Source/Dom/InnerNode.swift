@@ -20,7 +20,7 @@ struct Child {
     }
 }
 
-public class InnerNode: ArrayNode {
+public class InnerNode: AbstractNode {
     
     var children = Dictionary<String, Child>()
     
