@@ -41,7 +41,7 @@ public class AbstractNode {
             }
             _parent = newValue
             // TODO: do not use try!
-            try! _parent?.addChild(self)
+            _parent?.addChild(self)
             clear()
         }
     }
@@ -205,4 +205,8 @@ func stringReplace(pattern: String, replacement: String, subject: String) -> Str
     let regex = try! NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
     let resultText = regex.stringByReplacingMatchesInString(subject, options: .Anchored, range: NSMakeRange(0, subject.characters.count), withTemplate: replacement)
     return resultText
+}
+
+func trim(s: String) -> String {
+    return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 }

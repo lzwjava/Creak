@@ -8,11 +8,6 @@
 
 import Foundation
 
-func trim(s: String) -> String {
-    return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-}
-
-
 public class Dom {
     
     var raw: String!
