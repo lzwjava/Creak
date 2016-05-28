@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TextNode: LeafNode {
+public class TextNode: AbstractNode {
     
     var _text: String!
     

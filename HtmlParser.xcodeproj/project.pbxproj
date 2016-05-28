@@ -20,7 +20,6 @@
 		70B568201CE65FFF00DC9C38 /* NodeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5681F1CE65FFF00DC9C38 /* NodeCollection.swift */; };
 		70B568221CE6600900DC9C38 /* HtmlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568211CE6600900DC9C38 /* HtmlNode.swift */; };
 		70B568241CE6601400DC9C38 /* InnerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568231CE6601400DC9C38 /* InnerNode.swift */; };
-		70B568261CE6601C00DC9C38 /* LeafNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568251CE6601C00DC9C38 /* LeafNode.swift */; };
 		70B5682A1CE6602D00DC9C38 /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B568291CE6602D00DC9C38 /* TextNode.swift */; };
 		70B5682C1CE6605600DC9C38 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5682B1CE6605600DC9C38 /* Tag.swift */; };
 		70B5682E1CE6606C00DC9C38 /* Dom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5682D1CE6606B00DC9C38 /* Dom.swift */; };
@@ -62,7 +61,6 @@
 		70B5681F1CE65FFF00DC9C38 /* NodeCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeCollection.swift; sourceTree = "<group>"; };
 		70B568211CE6600900DC9C38 /* HtmlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlNode.swift; sourceTree = "<group>"; };
 		70B568231CE6601400DC9C38 /* InnerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerNode.swift; sourceTree = "<group>"; };
-		70B568251CE6601C00DC9C38 /* LeafNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeafNode.swift; sourceTree = "<group>"; };
 		70B568291CE6602D00DC9C38 /* TextNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
 		70B5682B1CE6605600DC9C38 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		70B5682D1CE6606B00DC9C38 /* Dom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dom.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				70B5681F1CE65FFF00DC9C38 /* NodeCollection.swift */,
 				70B568211CE6600900DC9C38 /* HtmlNode.swift */,
 				70B568231CE6601400DC9C38 /* InnerNode.swift */,
-				70B568251CE6601C00DC9C38 /* LeafNode.swift */,
 				70B568291CE6602D00DC9C38 /* TextNode.swift */,
 				70B5682B1CE6605600DC9C38 /* Tag.swift */,
 			);
@@ -281,7 +278,6 @@
 				70B567F71CE65A0D00DC9C38 /* AppDelegate.swift in Sources */,
 				70B567F91CE65A0D00DC9C38 /* FirstViewController.swift in Sources */,
 				70B568241CE6601400DC9C38 /* InnerNode.swift in Sources */,
-				70B568261CE6601C00DC9C38 /* LeafNode.swift in Sources */,
 				70B568201CE65FFF00DC9C38 /* NodeCollection.swift in Sources */,
 				70B5681B1CE65A9400DC9C38 /* AbstractNode.swift in Sources */,
 			);
