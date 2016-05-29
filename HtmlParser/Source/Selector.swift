@@ -35,9 +35,10 @@ public class Selector {
         parseSelectorString(selector)
     }
     
-    private func parseSelectorString(selector: String) {
+    private func parseSelectorString(aSelector: String) {
         let regex = try! NSRegularExpression(pattern: pattern, options: [.CaseInsensitive, .DotMatchesLineSeparators])
-        let matches = regex.matchesInString(selector, options: NSMatchingOptions.Anchored, range: NSMakeRange(0, selector.characters.count))
+        let selector = trim(aSelector) + " "
+        let matches = regex.matchesInString(selector, options: .ReportCompletion, range: NSMakeRange(0, selector.characters.count))
         var results = [ParseResult]()
         for match in matches {
             let nsrange = match.rangeAtIndex(1)

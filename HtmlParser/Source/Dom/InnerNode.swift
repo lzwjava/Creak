@@ -186,4 +186,10 @@ public class InnerNode: AbstractNode {
         return false
     }
     
+//    func printChildren() {
+//        for child in children {
+//            
+//        }
+//    }
+    
 }
