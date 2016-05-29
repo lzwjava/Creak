@@ -29,7 +29,6 @@ public class Selector {
         var oper: String?
         var noKey: Bool?
         var alterNext: Bool?
-        var checkGrandChildren: Bool?
     }
     
     public init(_ selector: String) {
@@ -98,14 +97,22 @@ public class Selector {
         }
     }
     
-    func match(oper: String, pattern: String, value: String) {
+    func match(oper: String, pattern: String, value: String) -> Bool {
         let lowValue = value.lowercaseString
         let lowPattern = pattern.lowercaseString
         switch oper {
             case "=":
-                return lowValue === lowPattern
-            case "!="
-                return lowValue !== lowPattern
+                return lowValue == lowPattern
+            case "!=":
+                return lowValue != lowPattern
+            case "^=":
+                return lowValue.hasPrefix(lowPattern)
+            case "$=":
+                return lowValue.hasSuffix(lowPattern)
+            case "*=":
+                return lowValue.containsString(lowPattern)
+            default:
+                return false
         }
     }
     
@@ -133,7 +140,7 @@ public class Selector {
                 if !node.hasChildren() {
                     continue
                 }
-                var children = []
+                var children = Array<AbstractNode>()
                 var child = node.firstChild()
                 while child != nil {
                     if rule.tag == "*" && rule.key == nil {
@@ -158,7 +165,7 @@ public class Selector {
                         }
                     }
                     
-                    if pass && rule.key != nil && rule.value != nil && rule.value != "*" {
+                    if pass && rule.oper != nil && rule.key != nil && rule.value != nil && rule.value != "*" {
                         var nodeValue: String?
                         if rule.key == "plaintext" {
                             nodeValue =  child?.text()
@@ -166,13 +173,44 @@ public class Selector {
                             nodeValue = child?.attribute(rule.key!)
                         }
                         
-                        var check =
+                        var check = match(rule.oper!, pattern: rule.value!, value: nodeValue!)
+                        // multiple class
+                        if !check && rule.key == "class" {
+                            let childClasses = child!.attribute("class")!.componentsSeparatedByString(" ")
+                            for clazz in childClasses {
+                                check = match(rule.oper!, pattern: rule.value!, value: clazz)
+                                if check {
+                                    break
+                                }
+                            }
+                        }
+                        
+                        if !check {
+                            pass = false
+                        }
+                    }
+                    if pass {
+                        results.append(child!)
+                    } else {
+                        if child is InnerNode && (child as! InnerNode).hasChildren() {
+                            children.append(child!)
+                        }
+                    }
+                    child = node.nextChild(child!.id)
+                }
+                
+                if options["checkGrandChildren"] != nil ||
+                    options["checkGrandChildren"] && children.count > 0 {
+                    var matches = seek(children, rule: rule, options: options)
+                    for match in matches {
+                        results.append(match)
                     }
                 }
             } else {
                 assert(node is TextNode)
             }
         }
+        return results
     }
     
     public func find(node: AbstractNode) -> Array<AbstractNode> {
