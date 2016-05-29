@@ -127,12 +127,13 @@ public class Selector {
 //                    if count == rule.key {
 //                        return [node]
 //                    }
-                    
                     return [node]
                 }
             }
             return []
         }
+        
+        let flatOptions = flattenOptions(options)
         
         var results = Array<AbstractNode>()
         for node in nodes {
@@ -199,9 +200,8 @@ public class Selector {
                     child = node.nextChild(child!.id)
                 }
                 
-                if options["checkGrandChildren"] != nil ||
-                    options["checkGrandChildren"] && children.count > 0 {
-                    var matches = seek(children, rule: rule, options: options)
+                if flatOptions["checkGrandChildren"] == true && children.count > 0 {
+                    let matches = seek(children, rule: rule, options: options)
                     for match in matches {
                         results.append(match)
                     }
@@ -228,15 +228,29 @@ public class Selector {
                     continue
                 }
                 nodes = seek(nodes, rule: rule, options: options)
+                options.removeAll()
+            }
+            for result in nodes {
+                results.append(result)
             }
         }
-        return Array()
+        return results
     }
     
     private func alterNext(rule: ParseResult) -> Dictionary<String, Bool> {
         var options = Dictionary<String, Bool>()
         if rule.tag == ">" {
             options["checkGrandChildren"] = false
+        }
+        return options
+    }
+    
+    private func flattenOptions(optionsArray: Array<Dictionary<String, Bool>>) -> Dictionary<String, Bool> {
+        var options = Dictionary<String, Bool>()
+        for optionArray in optionsArray {
+            for (key, value) in optionArray {
+                options[key] = value
+            }
         }
         return options
     }
