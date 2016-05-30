@@ -20,4 +20,11 @@ class DomTest: BaseTest {
         XCTAssertEqual("<div class=\"all\"><p>Hey bro, <a href=\"google.com\">click here</a><br /> :)</p></div>", div?.outerHtml())
     }
     
+    func testSelfClosingAttr() {
+        let dom = Dom()
+        dom.loadStr("<div class='all'><br  foo  bar  />baz</div>")
+        let br = dom.find("br", nth: 0)
+        XCTAssertEqual("<br foo bar />", br?.outerHtml())
+    }
+    
 }

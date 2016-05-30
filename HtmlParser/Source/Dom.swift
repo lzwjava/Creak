@@ -125,10 +125,11 @@ public class Dom {
                         attr.doubleQuote = false
                     }
                     content.fastForward(1)
-                    var string = content.copyUntil(String(quote), char: true, escape: true)
+                    // TODO: why quote!
+                    var string = content.copyUntil(String(quote!), char: true, escape: true)
                     var moreString = ""
                     repeat {
-                        moreString = content.copyUntilUnless(String(quote), unless: "=>")
+                        moreString = content.copyUntilUnless(String(quote!), unless: "=>")
                         string += moreString
                     } while moreString != ""
                     attr.value = string
