@@ -76,13 +76,14 @@ public class HtmlNode: InnerNode {
             }
         }
         var text = ""
-        for (_, child) in children {
-            let node = child.node
-            if node is TextNode {
-                text += node.text()
-            } else if lookInChildren && node is HtmlNode {
-                text += (node as! HtmlNode).textWithChildren(lookInChildren)
+        var child = firstChild()
+        while child != nil {
+            if child is TextNode {
+                text += child!.text()
+            } else if lookInChildren && child is HtmlNode {
+                text += (child as! HtmlNode).textWithChildren(lookInChildren)
             }
+            child = nextChild(child!.id)
         }
         if lookInChildren {
             _textWithChildren = text

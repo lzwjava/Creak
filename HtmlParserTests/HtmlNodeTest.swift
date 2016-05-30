@@ -94,8 +94,8 @@ class HtmlNodeTest: BaseTest {
     func testTextLookInChildren() {
         let p = HtmlNode(tag: "p")
         let a = HtmlNode(tag: "a")
-        a.addChild(TextNode(text: "click me"))
         p.addChild(TextNode(text:"Please "))
+        a.addChild(TextNode(text: "click me"))
         p.addChild(a)
         p.addChild(TextNode(text: "!"))
         XCTAssertEqual("Please click me!", p.textWithChildren(true))
