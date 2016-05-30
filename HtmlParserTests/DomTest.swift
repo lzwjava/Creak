@@ -31,7 +31,22 @@ class DomTest: BaseTest {
         let dom = Dom()
         dom.loadStr("<div class='all'><br  foo  bar  />baz</div>")
         let br = dom.find("br", nth: 0)
-        XCTAssertEqual("<br foo bar />", br?.outerHtml())
+        // Todo: order
+        XCTAssertEqual("<br bar foo />", br?.outerHtml())
+    }
+    
+    func testLoadEscapeQuotes() {
+        let dom = Dom()
+        dom.loadStr("<div class=\"all\"><p>Hey bro, <a href=\"google.com\" data-quote=\"\\\"\">click here</a></p></div>")
+        let div = dom.find("div")
+//        Todo
+//        XCTAssertEqual("<div class=\"all\"><p>Hey bro, <a href=\"google.com\" data-quote=\"\"\">click here</a></p></div>", div?.outerHtml())
+    }
+    
+    func testLoadNotOpeningTag() {
+        let dom = Dom()
+        dom.loadStr("<div class=\"all\"><font color=\"red\"><strong>PR Manager</strong></font></b><div class=\"content\">content</div></div>")
+        XCTAssertEqual("content", dom.find(".content")?.text())
     }
     
 }

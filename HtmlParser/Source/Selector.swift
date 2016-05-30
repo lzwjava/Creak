@@ -201,7 +201,7 @@ public class Selector {
                     child = node.nextChild(child!.id)
                 }
                 
-                if flatOptions["checkGrandChildren"] == true && children.count > 0 {
+                if  (flatOptions["checkGrandChildren"] == nil || flatOptions["checkGrandChildren"] == true) && children.count > 0 {
                     let matches = seek(children, rule: rule, options: options)
                     for match in matches {
                         results.append(match)
