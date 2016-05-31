@@ -185,4 +185,18 @@ public class Dom {
         return root.findAll(selector)
     }
     
+    func assertIsLoaded() {
+        assert(content != nil, "Content is not loaded!")
+    }
+    
+    func firstChild() -> AbstractNode? {
+        assertIsLoaded()
+        return root.firstChild()
+    }
+    
+    func lastChild() -> AbstractNode? {
+        assertIsLoaded()
+        return root.lastChild()
+    }
+    
 }

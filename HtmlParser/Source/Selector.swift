@@ -175,14 +175,19 @@ public class Selector {
                             nodeValue = child?.attribute(rule.key!)
                         }
                         
-                        var check = match(rule.oper!, pattern: rule.value!, value: nodeValue!)
+                        var check = false
+                        if nodeValue != nil {
+                            check = match(rule.oper!, pattern: rule.value!, value: nodeValue!)
+                        }
                         // multiple class
                         if !check && rule.key == "class" {
-                            let childClasses = child!.attribute("class")!.componentsSeparatedByString(" ")
-                            for clazz in childClasses {
-                                check = match(rule.oper!, pattern: rule.value!, value: clazz)
-                                if check {
-                                    break
+                            if let classValue = child!.attribute("class") {
+                                let childClasses = classValue.componentsSeparatedByString(" ")
+                                for clazz in childClasses {
+                                    check = match(rule.oper!, pattern: rule.value!, value: clazz)
+                                    if check {
+                                        break
+                                    }
                                 }
                             }
                         }
