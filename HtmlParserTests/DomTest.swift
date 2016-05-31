@@ -113,11 +113,24 @@ class DomTest: BaseTest {
         XCTAssertEqual("Ain't this the best", dom.find("a")?.attribute("title"))
     }
     
+    func testBeforeClosingTag() {
+        let dom = Dom()
+        dom.loadStr("<div class=\"stream-container \"  > <div class=\"stream-item js-new-items-bar-container\"> </div> <div class=\"stream\">")
+        XCTAssertEqual("<div class=\"stream-container \"> <div class=\"stream-item js-new-items-bar-container\"> </div> <div class=\"stream\"></div></div>", dom.root.innerHtml())
+    }
+    
     func testCodeTag() {
         let dom = Dom()
         dom.loadStr("<strong>hello</strong><code class=\"language-php\">$foo = \"bar\";</code>")
         XCTAssertEqual("<strong>hello</strong><code class=\"language-php\">$foo = \"bar\";</code>", dom.root.innerHtml())
     }
     
-    
+    func testDelete() {
+        let dom = Dom()
+        dom.loadStr("<div class=\"all\"><p>Hey bro, <a href=\"google.com\">click here</a><br /> :)</p></div>")
+        let a = dom.find("a")
+        a?.delete()
+        XCTAssertEqual("<div class=\"all\"><p>Hey bro, <br /> :)</p></div>", dom.root.innerHtml())
+    }
+
 }
