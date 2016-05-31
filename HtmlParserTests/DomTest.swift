@@ -101,5 +101,23 @@ class DomTest: BaseTest {
         XCTAssertEqual("<p>Hey bro, <a href=\"google.com\" id=\"78\">click here</a></p>", dom.find("p")?.outerHtml())
     }
     
+    func testMultipleDoubleQuotes() {
+        let dom = Dom()
+        dom.loadStr("<a title=\"This is a \"test\" of double quotes\" href=\"http://www.example.com\">Hello</a>")
+        XCTAssertEqual("This is a \"test\" of double quotes", dom.find("a")?.attribute("title"))
+    }
+    
+    func testMultipleSingleQuotes() {
+        let dom = Dom()
+        dom.loadStr("<a title='Ain't this the best' href=\"http://www.example.com\">Hello</a>")
+        XCTAssertEqual("Ain't this the best", dom.find("a")?.attribute("title"))
+    }
+    
+    func testCodeTag() {
+        let dom = Dom()
+        dom.loadStr("<strong>hello</strong><code class=\"language-php\">$foo = \"bar\";</code>")
+        XCTAssertEqual("<strong>hello</strong><code class=\"language-php\">$foo = \"bar\";</code>", dom.root.innerHtml())
+    }
+    
     
 }
