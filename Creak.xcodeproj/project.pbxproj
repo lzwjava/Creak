@@ -26,7 +26,6 @@
 		701974C31CFEF4BD002CC0AD /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701974B81CFEF4BD002CC0AD /* TextNode.swift */; };
 		701974C41CFEF4BD002CC0AD /* Dom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701974B91CFEF4BD002CC0AD /* Dom.swift */; };
 		701974C51CFEF4BD002CC0AD /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701974BA1CFEF4BD002CC0AD /* Selector.swift */; };
-		701974C61CFEF4BD002CC0AD /* StaticDom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701974BB1CFEF4BD002CC0AD /* StaticDom.swift */; };
 		709FD6341CFEF372004B7122 /* Creak.h in Headers */ = {isa = PBXBuildFile; fileRef = 709FD6331CFEF372004B7122 /* Creak.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		709FD63B1CFEF372004B7122 /* Creak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709FD6301CFEF372004B7122 /* Creak.framework */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 		701974B81CFEF4BD002CC0AD /* TextNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
 		701974B91CFEF4BD002CC0AD /* Dom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dom.swift; sourceTree = "<group>"; };
 		701974BA1CFEF4BD002CC0AD /* Selector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selector.swift; sourceTree = "<group>"; };
-		701974BB1CFEF4BD002CC0AD /* StaticDom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticDom.swift; sourceTree = "<group>"; };
 		709FD6301CFEF372004B7122 /* Creak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Creak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		709FD6331CFEF372004B7122 /* Creak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Creak.h; sourceTree = "<group>"; };
 		709FD6351CFEF372004B7122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				701974B01CFEF4BD002CC0AD /* Content.swift */,
 				701974B91CFEF4BD002CC0AD /* Dom.swift */,
 				701974BA1CFEF4BD002CC0AD /* Selector.swift */,
-				701974BB1CFEF4BD002CC0AD /* StaticDom.swift */,
 			);
 			path = Source;
 			sourceTree = SOURCE_ROOT;
@@ -274,7 +271,6 @@
 				701974C21CFEF4BD002CC0AD /* Tag.swift in Sources */,
 				701974C31CFEF4BD002CC0AD /* TextNode.swift in Sources */,
 				701974C41CFEF4BD002CC0AD /* Dom.swift in Sources */,
-				701974C61CFEF4BD002CC0AD /* StaticDom.swift in Sources */,
 				701974C01CFEF4BD002CC0AD /* NodeCollection.swift in Sources */,
 				701974BC1CFEF4BD002CC0AD /* Content.swift in Sources */,
 				701974BD1CFEF4BD002CC0AD /* AbstractNode.swift in Sources */,
