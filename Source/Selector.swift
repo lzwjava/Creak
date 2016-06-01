@@ -64,6 +64,10 @@ public class Selector {
                 oper = selector.substringWithNSRange(match.rangeAtIndex(5))
             }
             
+            if match.rangeAtIndex(6).location != NSNotFound {
+                value = selector.substringWithNSRange(match.rangeAtIndex(6))
+            }
+            
             if key != nil && key!.substringToIndex(key!.startIndex.advancedBy(1)) == "!" {
                 key = key?.substringFromIndex(key!.startIndex.advancedBy(1))
                 noKey = true

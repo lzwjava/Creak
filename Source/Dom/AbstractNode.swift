@@ -40,7 +40,6 @@ public class AbstractNode {
                 parent.removeChild(id)
             }
             _parent = newValue
-            // TODO: do not use try!
             _parent?.addChild(self)
             clear()
         }
