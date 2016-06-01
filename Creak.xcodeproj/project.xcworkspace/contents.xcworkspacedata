@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:HtmlParser.xcodeproj">
+      location = "self:/Users/lzw/swift/HtmlParser/Creak.xcodeproj">
    </FileRef>
 </Workspace>
