@@ -8,14 +8,6 @@
 
 import Foundation
 
-extension String {
-    func substringWithNSRange(nsRange: NSRange) -> String {
-        let startIndex = self.startIndex.advancedBy(nsRange.location)
-        let range = startIndex..<startIndex.advancedBy(nsRange.length)
-        return self.substringWithRange(range)
-    }
-}
-
 public class Selector {
     
     var pattern = "([\\w-:\\*>]*)(?:\\#([\\w-]+)|\\.([\\w-]+))?(?:\\[@?(!?[\\w-:]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\\])?([\\/, ]+)"

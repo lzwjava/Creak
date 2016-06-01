@@ -33,6 +33,7 @@
 		700ED89E1CFEDF120053C268 /* Dom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700ED8941CFEDF120053C268 /* Dom.swift */; };
 		700ED89F1CFEDF120053C268 /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700ED8951CFEDF120053C268 /* Selector.swift */; };
 		700ED8A01CFEDF120053C268 /* StaticDom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700ED8961CFEDF120053C268 /* StaticDom.swift */; };
+		70E5FAA61CFEF17100D8DE74 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E5FAA51CFEF17100D8DE74 /* StringHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		700ED8951CFEDF120053C268 /* Selector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selector.swift; sourceTree = "<group>"; };
 		700ED8961CFEDF120053C268 /* StaticDom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticDom.swift; sourceTree = "<group>"; };
 		70B567F31CE65A0D00DC9C38 /* Creak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Creak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70E5FAA51CFEF17100D8DE74 /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				700ED8911CFEDF120053C268 /* NodeCollection.swift */,
 				700ED8921CFEDF120053C268 /* Tag.swift */,
 				700ED8931CFEDF120053C268 /* TextNode.swift */,
+				70E5FAA51CFEF17100D8DE74 /* StringHelper.swift */,
 			);
 			path = Dom;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				700ED89B1CFEDF120053C268 /* NodeCollection.swift in Sources */,
 				700ED8A01CFEDF120053C268 /* StaticDom.swift in Sources */,
 				700ED89F1CFEDF120053C268 /* Selector.swift in Sources */,
+				70E5FAA61CFEF17100D8DE74 /* StringHelper.swift in Sources */,
 				700ED8561CFEDB530053C268 /* SecondViewController.swift in Sources */,
 				700ED8541CFEDB530053C268 /* FirstViewController.swift in Sources */,
 				700ED89E1CFEDF120053C268 /* Dom.swift in Sources */,
