@@ -132,5 +132,5 @@ class DomTest: BaseTest {
         a?.delete()
         XCTAssertEqual("<div class=\"all\"><p>Hey bro, <br /> :)</p></div>", dom.root.innerHtml())
     }
-
+    
 }
