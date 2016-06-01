@@ -130,8 +130,8 @@
 		700ED88B1CFEDF120053C268 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				700ED88C1CFEDF120053C268 /* Content.swift */,
 				700ED88D1CFEDF120053C268 /* Dom */,
+				700ED88C1CFEDF120053C268 /* Content.swift */,
 				700ED8941CFEDF120053C268 /* Dom.swift */,
 				700ED8951CFEDF120053C268 /* Selector.swift */,
 				700ED8961CFEDF120053C268 /* StaticDom.swift */,
@@ -446,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Creak/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzw.Creak;
 				PRODUCT_NAME = Creak;
@@ -457,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Creak/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzw.Creak;
 				PRODUCT_NAME = Creak;
