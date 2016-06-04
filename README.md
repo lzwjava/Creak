@@ -1,2 +1,4 @@
-# HtmlParser
+# Creak
+
+Elgant HTML Parser in Swift.
 
